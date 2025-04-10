@@ -43,7 +43,8 @@ Open the notebook in the `code` folder to:
 
 ### Option 2: Python Script
 
-Run `main.py` in the `code` folder. You can switch levels by editing the `levelnumber` variable:
+Run `main.py` in the `code` folder. You can switch levels by using the level number:
 
-```python
-levelnumber = 1  # 1: Basic | 2: Precision | 3: Button
+```
+main.py <level> # replace level with any number (currently between 1 and 3)
+```
