@@ -28,11 +28,11 @@ class Mario:
         self.batch_size = 32
         self.gamma = 0.9
         
-        self.burnin = 5000  # min. experiences before training
+        self.burnin = 1000  # min. experiences before training
         self.learn_every = 3  # no. of experiences between updates to Q_online
-        self.sync_every = 5000  # no. of experiences between Q_target & Q_online sync
+        self.sync_every = 1000  # no. of experiences between Q_target & Q_online sync
         
-        self.optimizer = torch.optim.Adam(self.net.parameters(), lr=0.00025)
+        self.optimizer = torch.optim.Adam(self.net.parameters(), lr=0.025)
         self.loss_fn = torch.nn.SmoothL1Loss()
 
     def act(self, state):

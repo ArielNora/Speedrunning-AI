@@ -28,13 +28,13 @@ class Game:
         
     def check_game_over(self):
         if self.cur_health <= 0:
-            self.level_bg_music.stop()
             self.level.gameover=True
                     
         
     def check_win(self):
         if self.level.win:
-            self.level_bg_music.stop()
+            return True
+            ##self.level_bg_music.stop()
         
     def reset(self):
         self.level = Level(self.levelnumber,self.screen,self.change_health)
@@ -79,7 +79,7 @@ class Game:
 
     def getReward(self):
         distanceReward = self.get_distance_to_end()
-        return 5000-distanceReward-self.time*3 + (int(self.get_win())*5000) - (int(self.get_gameover())*5000)
+        return (5000-distanceReward)*2-self.time*3 + (int(self.get_win())*5000) - (int(self.get_gameover())*50000)
 
     def get_distance_to_end(self):
         
@@ -118,9 +118,9 @@ class Game:
 
     def get_done(self):
         #if game needs reset (win or gamover)
-        return self.level.win or self.level.gameover or self.time>1000
+        return self.level.win or self.level.gameover ##or self.time>1000
     
     def get_win(self): return self.level.win
     
-    def get_gameover(self): return self.level.gameover or self.time>1000
+    def get_gameover(self): return self.level.gameover ##or self.time>1000
 
